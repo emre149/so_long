@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/25 21:32:46 by ededemog         ###   ########.fr        #
+#    Updated: 2024/04/25 21:52:34 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,11 @@ GREEN	:=	"\e[1;92m"
 RESET	:=	"\e[0m"
 
 ifeq ($(shell uname), Linux)
+	INCLUDES = -I/usr/include -Imlx
 	MLX		:=	inc/mlx/libmlx_Linux.a
 	MLX_FLAGS := -L./inc/mlx -lmlx -L/usr/lib/X11 -lXext -lX11
 else
+	INCLUDES = -I/opt/X11/include -Imlx
 	MLX		:=	inc/mlx/libmlx.a
 	MLX_FLAGS := -L./inc/mlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
 endif
@@ -46,7 +48,7 @@ CFLAGS	:=	-Werror -Wextra -Wall
 all:	$(NAME)
 
 $(OBJDIR)%.o:	$(SRCDIR)%.c | $(OBJDIR)
-		@$(CC) $(CFLAGS) -I/usr/include -Imlx -O3 -c $< -o $@
+		@$(CC) $(CFLAGS) $(INCLUDES) -Imlx -O3 -c $< -o $@
 		@echo $(GREEN)Compiling $< to $@$(RESET)
 
 $(PRINTF):
