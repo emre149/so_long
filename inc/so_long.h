@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/25 20:39:54 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/25 22:19:12 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@
 # include <limits.h>
 # include <sys/types.h>
 # include <stddef.h>
-# include "mlx/mlx.h"
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
 # include "ft_printf/ft_printf.h"
 
 /*MLX STRUCT*/

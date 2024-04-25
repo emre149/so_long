@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/25 21:52:34 by ededemog         ###   ########.fr        #
+#    Updated: 2024/04/25 22:18:09 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,13 @@ GREEN	:=	"\e[1;92m"
 RESET	:=	"\e[0m"
 
 ifeq ($(shell uname), Linux)
-	INCLUDES = -I/usr/include -Imlx
+	INCLUDES = -I ./inc/mlx
 	MLX		:=	inc/mlx/libmlx_Linux.a
 	MLX_FLAGS := -L./inc/mlx -lmlx -L/usr/lib/X11 -lXext -lX11
 else
-	INCLUDES = -I/opt/X11/include -Imlx
-	MLX		:=	inc/mlx/libmlx.a
-	MLX_FLAGS := -L./inc/mlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+	INCLUDES = -I ./inc/mlx-mac
+	MLX		:=	inc/mlx-mac/libmlx.a
+	MLX_FLAGS := -L./inc/mlx-mac -lmlx -framework OpenGL -framework AppKit
 endif
 
 CC		:=	cc
