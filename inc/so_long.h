@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/25 16:58:26 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/04/25 20:39:54 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <limits.h>
 # include <sys/types.h>
 # include <stddef.h>
-# include "mlx/mlx.h"
 # include "mlx/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
