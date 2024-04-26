@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/25 22:18:09 by ededemog         ###   ########.fr        #
+#    Updated: 2024/04/26 13:14:04 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ $(PRINTF):
 			@echo $(GREEN)ft_printf compiled $(RESET)
 
 $(MLX):
-			make -sC inc/mlx/
+			@make -sC inc/mlx/
 
 $(OBJDIR):
 			mkdir -p obj/
