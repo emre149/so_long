@@ -6,28 +6,72 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/26 14:16:04 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/05/01 20:27:25 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-t_map	*parsing(const char *file)
+char	c_interpretor(char c)
 {
-	int	fd;
-
-	fd = open("../maps/classic.ber", O_RDONLY);
-	if (fd < 0)
+	if (c == '1')
 	{
-		perror("Error trying opening the map.\n");
-		exit(1);
+		ft_printf("1");
 	}
+	else if (c == '0')
+	{
+		ft_printf("0");
+	}
+	else if (c == 'P')
+	{
+		ft_printf("P");
+	}
+	else if (c == 'C')
+	{
+		ft_printf("C");
+	}
+	else if (c == 'E')
+	{
+		ft_printf("E");
+	}
+	return (0);
+}
 
-	t_map	*map;
+void	line_parsing(char *line)
+{
+	int	i;
 
-	map = malloc(sizeof(t_map));
-	if (!map)
-		exit(1);
-	read(fd, &map->width, sizeof(int));
-	read(fd, &map->height, sizeof(int));
+	i = 0;
+	while (line[i] != '\0')
+	{
+		c_interpretor(line[i]);
+		i++;
+	}
+	ft_printf("\n");
+}
+
+void	read_and_process(const char *filename)
+{
+    char *line;
+    int fd = open(filename, O_RDONLY);
+
+    if (fd == -1)
+	{
+        perror("Erreur d'ouverture du fichier");
+        return;
+    }
+
+    while ((line = get_next_line(fd)) != NULL)
+	{
+        line_parsing(line);
+        free(line);
+    }
+
+    close(fd);
+}
+
+int	main()
+{
+	read_and_process("../maps/classic.ber");
+	return (0);
 }

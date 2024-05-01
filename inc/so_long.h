@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/04/26 14:15:59 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/05/01 20:24:37 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@
 # include <limits.h>
 # include <sys/types.h>
 # include <stddef.h>
-# include <mlx.h>
+//# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <errno.h>
 # include <fcntl.h>
 # include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 /*MLX STRUCT*/
-
 
 typedef struct	s_map {
 	int		width;
@@ -45,6 +45,12 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }	t_data;
+
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
+char	*ft_strcpy(char *dest, char *src);
+
+int	*read_dimension(const char *file);
+void read_lines(int width, int height, const char *file);
 
 
 #endif

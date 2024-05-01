@@ -6,23 +6,23 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/04/26 13:14:04 by ededemog         ###   ########.fr        #
+#    Updated: 2024/05/01 20:27:53 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	so_long
 
 SRCDIR	:=	src/
-
+GNLDIR	:=	inc/get_next_line
 OBJDIR	:=	obj/
-
 INCDIR	:=	./inc/mlx/ ./inc/ft_printf/
 
 SRC		:=	so_long.c
-
+GNL		:=	get_next_line.c get_next_line_utils.c
 OBJ		:=	$(SRC:.c=.o)
 
 SRC		:=	$(addprefix $(SRCDIR),$(SRC))
+GNL		:=	$(addprefix $(GNLDIR),$(GNL))
 OBJ		:=	$(addprefix $(OBJDIR),$(OBJ))
 
 PRINTF	:=	inc/ft_printf/libftprintf.a
@@ -59,7 +59,7 @@ $(MLX):
 			@make -sC inc/mlx/
 
 $(OBJDIR):
-			mkdir -p obj/
+			mkdir -p obj
 
 $(NAME):	$(OBJ) $(PRINTF) $(MLX)
 			$(CC) $(OBJ) $(MLX_FLAGS) -L./inc/ft_printf/ -lftprintf -o $(NAME)
