@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/05/01 20:27:25 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/05/01 21:19:29 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	read_and_process(const char *filename)
 
 int	main()
 {
-	read_and_process("../maps/classic.ber");
+	read_and_process("../maps/caca.ber");
 	return (0);
 }
