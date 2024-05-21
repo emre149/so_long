@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/05/01 21:20:41 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:18:18 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,24 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }	t_data;
+
+typedef struct	s_images {
+	void	*wall;
+	int		wall_width;
+	int		wall_height;
+
+	void	*floor;
+	int		floor_width;
+	int		floor_height;
+
+	void	*collectible;
+	int		collectible_width;
+	int		collectible_height;
+	
+	void	*exit;
+	int		exit_width;
+	int		exit_height;
+}	t_images;
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strcpy(char *dest, char *src);
