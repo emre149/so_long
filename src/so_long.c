@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:18:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/05/21 17:18:59 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:58:12 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	main(void)
 {
-	void	*mlx_p;
-	void	*mlx_w;
-	// char	*buffer;
-	t_data	img;
+	void		*mlx_p;
+	void		*mlx_w;
 	t_images	images;
 
 	mlx_p = mlx_init();
@@ -38,6 +36,10 @@ int	main(void)
     images.floor = mlx_xpm_file_to_image(mlx_p, "path/to/floor.xpm", &(images.floor_width), &(images.floor_height));
     images.collectible = mlx_xpm_file_to_image(mlx_p, "path/to/collectible.xpm", &(images.collectible_width), &(images.collectible_height));
     images.exit = mlx_xpm_file_to_image(mlx_p, "path/to/exit.xpm", &(images.exit_width), &(images.exit_height));
+	images.position = mlx_xpm_file_to_image(mlx_p, "path/to/position.xpm", &(images.exit_width), &(images.exit_height));
+	
+	read_and_
+	
 	mlx_loop(mlx_p);
 	free(mlx_p);
 	return (0);

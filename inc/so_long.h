@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/05/21 17:18:18 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:28:11 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,29 @@
 
 /*MLX STRUCT*/
 
-typedef struct	s_map {
+typedef struct	s_game {
+	int		score;
+	int		level;
+}	t_game;
+
+typedef struct s_player {
+	int	x;
+	int	y;
+	int	health;
+}	t_player;
+
+typedef struct s_map {
 	int		width;
 	int		height;
-	char	**tiles;
+	char	**layout
 }	t_map;
 
-typedef struct	s_data {
+
+typedef struct	s_sprite {
 	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
+	int		width;
+	int		height;
+}	t_sprite;
 
 typedef struct	s_images {
 	void	*wall;
@@ -62,6 +72,10 @@ typedef struct	s_images {
 	void	*exit;
 	int		exit_width;
 	int		exit_height;
+
+	void	*position;
+	int		position_width;
+	int		position_height;
 }	t_images;
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);

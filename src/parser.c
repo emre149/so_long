@@ -6,41 +6,41 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/05/21 16:45:31 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:40:42 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-char	c_interpretor(char c, int x, int y, void *mlx_p, t_images *images)
+char	c_interpretor(char c, int x, int y, void *mlx_p, void *mlx_w, t_images *images)
 {
 	void	*image_to_draw;
 	
 	if (c == '1')
 	{
-		ft_printf("1");
+		image_to_draw = images->wall;
 	}
 	else if (c == '0')
 	{
-		ft_printf("0");
+		image_to_draw = images->floor;
 	}
 	else if (c == 'P')
 	{
-		ft_printf("P");
+		image_to_draw = images->position;
 	}
 	else if (c == 'C')
 	{
-		ft_printf("C");
+		image_to_draw = images->collectible;
 	}
 	else if (c == 'E')
 	{
-		ft_printf("E");
+		image_to_draw = images->exit;
 	}
 	return (0);
-	mlx_put_image_to_window()
+    mlx_put_image_to_window(mlx_p, mlx_w, image_to_draw, x, y);
 }
 
-void	line_parsing(char *line, int y, void *mlx_p, t_images *images)
+void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_images *images)
 {
 	int	i;
 	int	x;
@@ -49,8 +49,8 @@ void	line_parsing(char *line, int y, void *mlx_p, t_images *images)
 	x = 0;
 	while (line[i] != '\0')
 	{
-		c_interpretor(line[i], x, y, mlx_p, images);
-		x += IMAGE_WIDTH; // to change ofc
+		c_interpretor(line[i], x, y, mlx_p, mlx_w, images);
+		x += images.width; // to change ofc
 		i++;
 	}
 	ft_printf("\n");
