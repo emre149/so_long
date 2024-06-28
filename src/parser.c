@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/06/10 17:40:42 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:00:00 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	c_interpretor(char c, int x, int y, void *mlx_p, void *mlx_w, t_images *ima
 
 void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_images *images)
 {
+	t_data	data;
+	
 	int	i;
 	int	x;
 
@@ -50,7 +52,7 @@ void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_images *images)
 	while (line[i] != '\0')
 	{
 		c_interpretor(line[i], x, y, mlx_p, mlx_w, images);
-		x += images.width; // to change ofc
+		x += data.i_width; // to change ofc
 		i++;
 	}
 	ft_printf("\n");

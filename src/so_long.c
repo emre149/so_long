@@ -6,41 +6,52 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:18:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/06/10 16:58:12 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/28 16:03:28 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	load_textures(t_data *data, int tile_type, char *path)
 {
-	char	*dst;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	if (tile_type < 0 || tile_type >= 5)
+		return;
+	data->textures[tile_type] = mlx_xpm_file_to_image(data->mlx_ptr, path, &data->i_width, &data->i_height);
+	if (!data->textures[tile_type])
+	{
+		printf("Failed to load texture: %s\n", path);
+		return;
+	}
 }
 
-int	main(void)
+int	main()
 {
-	void		*mlx_p;
-	void		*mlx_w;
-	t_images	images;
+	t_data data;
 
-	mlx_p = mlx_init();
-	if (!mlx_p)
-		return (1);
-	mlx_w = mlx_new_window(mlx_p, 800, 600, "so_long");
-	if (!mlx_w)
-		return (free(mlx_p), 1);
+	data.mlx_ptr = mlx_init();
 
-    images.wall = mlx_xpm_file_to_image(mlx_p, "path/to/wall.xpm", &(images.wall_width), &(images.wall_height));
-    images.floor = mlx_xpm_file_to_image(mlx_p, "path/to/floor.xpm", &(images.floor_width), &(images.floor_height));
-    images.collectible = mlx_xpm_file_to_image(mlx_p, "path/to/collectible.xpm", &(images.collectible_width), &(images.collectible_height));
-    images.exit = mlx_xpm_file_to_image(mlx_p, "path/to/exit.xpm", &(images.exit_width), &(images.exit_height));
-	images.position = mlx_xpm_file_to_image(mlx_p, "path/to/position.xpm", &(images.exit_width), &(images.exit_height));
-	
-	read_and_
-	
-	mlx_loop(mlx_p);
-	free(mlx_p);
+	data.w_width = 800;
+	data.w_height = 600;
+
+	char *wall_texture_path = "1.xpm";
+
+	if (!wall_texture_path)
+		return (printf("Texture not loaded.\n"));
+	else
+		load_textures(&data, WALL, wall_texture_path);
+
+	data.win_ptr = mlx_new_window(data.mlx_ptr, data.w_width, data.w_height, "cacabudin");
+
+	int	x;
+	int	y;
+
+	x = (data.i_height - data.w_height) / 2;
+	y = (data.i_width - data.i_height) / 2;
+
+	if (data.textures[WALL])
+		mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.textures[WALL], x, y);
+
+	mlx_loop(data.mlx_ptr);
+	printf("hi");
 	return (0);
 }

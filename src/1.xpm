@@ -1,0 +1,7 @@
+/* XPM */
+static char *white_image_xpm[] = {
+"1 1 2 0",
+"W c #FFFFFF",
+". c None",
+"W"
+};
