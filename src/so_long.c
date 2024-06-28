@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:18:12 by ededemog          #+#    #+#             */
-/*   Updated: 2024/06/28 16:03:28 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/06/28 17:00:40 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,22 @@
 
 void	load_textures(t_data *data, int tile_type, char *path)
 {
+
+	printf("%s\n", path);
+	printf("%d\n", tile_type);
+	printf("%d\n", data->w_width);
+	printf("%d\n", data->w_height);
+
+	int	w;
+	int	h;
+
+	w = 32;
+	h = 32;
+	
 	if (tile_type < 0 || tile_type >= 5)
 		return;
-	data->textures[tile_type] = mlx_xpm_file_to_image(data->mlx_ptr, path, &data->i_width, &data->i_height);
+	// data->textures[tile_type] = mlx_xpm_file_to_image(data->mlx_ptr, path, &data->i_width, &data->i_height);
+	data->textures[tile_type] = mlx_xpm_file_to_image(data->mlx_ptr, path, &w, &h);
 	if (!data->textures[tile_type])
 	{
 		printf("Failed to load texture: %s\n", path);
@@ -33,7 +46,7 @@ int	main()
 	data.w_width = 800;
 	data.w_height = 600;
 
-	char *wall_texture_path = "1.xpm";
+	char *wall_texture_path = "assets/1.xpm";
 
 	if (!wall_texture_path)
 		return (printf("Texture not loaded.\n"));
@@ -45,8 +58,8 @@ int	main()
 	int	x;
 	int	y;
 
-	x = (data.i_height - data.w_height) / 2;
-	y = (data.i_width - data.i_height) / 2;
+	x = 20;
+	y = 20;
 
 	if (data.textures[WALL])
 		mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.textures[WALL], x, y);
