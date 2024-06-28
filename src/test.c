@@ -36,7 +36,7 @@ int		main(void)
 		return (1);
 	}
 
-	void *image = mlx_xpm_file_to_image(data.mlx_ptr, "../assets/pfp.xpm", &data.i_width, &data.i_height);
+	void *image = mlx_xpm_file_to_image(data.mlx_ptr, "assets/pfp.xpm", &data.i_width, &data.i_height);
 	if (!image)
 	{
 		printf("Failed to load image 'pfp.xpm'\n");
