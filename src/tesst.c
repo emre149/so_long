@@ -6,7 +6,7 @@ int main(void)
 
 	data.mlx_ptr = NULL;
 	data.win_ptr = NULL;
-	data.wall
+	data.wall = NULL;
     // Initialize the MiniLibX library
     data.mlx_ptr = mlx_init();
     if (!data.mlx_ptr)
