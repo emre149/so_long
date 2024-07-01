@@ -6,43 +6,15 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:05:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/06/28 16:00:00 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:33:09 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-char	c_interpretor(char c, int x, int y, void *mlx_p, void *mlx_w, t_images *images)
+void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_main *images)
 {
-	void	*image_to_draw;
-	
-	if (c == '1')
-	{
-		image_to_draw = images->wall;
-	}
-	else if (c == '0')
-	{
-		image_to_draw = images->floor;
-	}
-	else if (c == 'P')
-	{
-		image_to_draw = images->position;
-	}
-	else if (c == 'C')
-	{
-		image_to_draw = images->collectible;
-	}
-	else if (c == 'E')
-	{
-		image_to_draw = images->exit;
-	}
-	return (0);
-    mlx_put_image_to_window(mlx_p, mlx_w, image_to_draw, x, y);
-}
-
-void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_images *images)
-{
-	t_data	data;
+	t_main	main;
 	
 	int	i;
 	int	x;
@@ -52,18 +24,20 @@ void	line_parsing(char *line, int y, void *mlx_p,void *mlx_w, t_images *images)
 	while (line[i] != '\0')
 	{
 		c_interpretor(line[i], x, y, mlx_p, mlx_w, images);
-		x += data.i_width; // to change ofc
+		x += HEIGHT; // to change ofc
 		i++;
 	}
 	ft_printf("\n");
 }
 
-void	read_and_process(const char *filename, void	*mlx_p, t_images *images)
+void read_and_process_map(const char *filename, t_main *game)
 {
     char *line;
     int fd = open(filename, O_RDONLY);
+	int	x;
 	int	y;
 
+	x = 0;
 	y = 0;
     if (fd == -1)
 	{
@@ -73,10 +47,32 @@ void	read_and_process(const char *filename, void	*mlx_p, t_images *images)
 
     while ((line = get_next_line(fd)) != NULL)
 	{
-        line_parsing(line, y, mlx_p, images);
-        free(line);
-		y += IMAGE_HEIGHT; 
+		while (line[x])
+		{
+			game->map[y][x] = line[x];
+			if (line[x] == PLAYER)
+			{
+				game->start_i = y;
+				game->start_j = x;
+			}
+			else if (line[x] == COLLECTABLE)
+			{
+				game->items_nbr++;
+			}
+			x++;
+		}
+		game->cols = x;
+		free(line);
+		y++;
     }
+	game->lines = y;
+	close(fd);
+}
 
-    close(fd);
+void	is_map_valid(t_main *game)
+{
+	if (!game->map || !game->map[0])
+		return (0);
+
+	int
 }

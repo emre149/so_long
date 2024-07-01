@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/01 15:01:03 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/01 15:52:14 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@
 
 // MAP COMPONENTS
 # define WALL '1'
-# define WATER '0'
-# define ITEM 'C'
+# define EMPTY '0'
+# define COLLECTABLE 'C'
 # define PLAYER 'P'
 # define EXIT 'E'
 
@@ -59,11 +59,11 @@
 # define KEY_Q 113
 # define KEY_ESC 65307
 
-# define PLAYER "assets/player.xpm"
-# define HOLE "assets/hole.xpm"
-# define ITEM "assets/item.xpm"
-# define WALL "assets/wall.xpm"
-# define WATER "assets/water.xpm"
+# define PLAYER_x "assets/player.xpm"
+# define EMPTY_x "assets/empty.xpm"
+# define COLLECTABLE_x "assets/collectable.xpm"
+# define WALL_x "assets/wall.xpm"
+# define EXIT_x "assets/exit.xpm"
 
 /*MLX STRUCT*/
 typedef struct	s_main
@@ -79,6 +79,9 @@ typedef struct	s_main
 	int			actual_j;
 	int			items_nbr;
 	int			items_collected;
+	int			height;
+	int			width;
+	int			total_moves;
 	void		*player;
 	void		*empty;
 	void		*collectables;
@@ -89,6 +92,7 @@ typedef struct	s_main
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strcpy(char *dest, char *src);
+void	*ft_memset(void *b, int c, size_t len);
 
 int	*read_dimension(const char *file);
 void read_lines(int width, int height, const char *file);
