@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:10:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/01 15:52:14 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:33:46 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "ft_printf/ft_printf.h"
-//# include "get_next_line/get_next_line.h"
+# include "get_next_line/get_next_line.h"
+# include "libft/libft.h"
 
 // ASSETS SIZE
 # define HEIGHT 32

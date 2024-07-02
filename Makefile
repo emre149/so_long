@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/07/01 15:05:29 by ededemog         ###   ########.fr        #
+#    Updated: 2024/07/02 17:14:21 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ GNLDIR	:=	inc/get_next_line
 OBJDIR	:=	obj/
 INCDIR	:=	./inc/mlx/ ./inc/ft_printf/
 
-SRC		:=	test.c
+SRC		:=	parser.c
 GNL		:=	get_next_line.c get_next_line_utils.c
 OBJ		:=	$(SRC:.c=.o)
 
