@@ -18,8 +18,8 @@
 # define WIDTH 32
 
 # define WALL '1'
-# define WATER '0'
-# define ITEM 'C'
+# define EMPTY '0'
+# define COLLECTABLE 'C'
 # define PLAYER 'P'
 # define EXIT 'E'
 
@@ -37,10 +37,10 @@
 # define KEY_ESC 65307
 
 # define PLAYER_X "assets/player.xpm"
-# define HOLE_X "assets/hole.xpm"
-# define ITEM_X "assets/item.xpm"
+# define EXIT_X "assets/hole.xpm"
+# define COLLECTABLE_X "assets/item.xpm"
 # define WALL_X "assets/wall.xpm"
-# define WATER_X "assets/water.xpm"
+# define EMPTY_X "assets/water.xpm"
 
 typedef struct s_main
 {
