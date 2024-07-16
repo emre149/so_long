@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 19:52:47 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/15 20:00:45 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:30:50 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_moves(t_main *win, int key, int i, int j)
 {
-	if (key == 119)
+	if (key == KEY_RIGHT || key == KEY_D)
 	{
 		if (move_there(win, i - 1, j))
 			return (1);
