@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:50:19 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 14:55:39 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:00:28 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	free_all_and_errors(t_main *win, char *err_msg)
 
 void	malloc_exit(t_main *win)
 {
-	handle_error(win, "Error\nMalloc failed\n", 1);
+	free_all(win);
+	ft_putendl_fd("Error\nMalloc failed\n", 2);
+	exit(1);
 }
 
 void	mlx_exit(t_main *win)

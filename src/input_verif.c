@@ -6,46 +6,41 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 12:27:02 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 14:57:39 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:01:03 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void store_map(t_main *win, char **argv)
+void	store_map(t_main *win, char **argv)
 {
-    char *str;
-    char *lines;
-    char *buff;
-    int fd;
+	char	*str;
+	char	*lines;
+	char	*buff;
+	int		fd;
 
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-        malloc_exit(win); // Assuming you want to exit if file can't be opened.
-    str = get_next_line(fd);
-    buff = NULL;
-    lines = NULL;
-    while (str)
-    {
-        buff = lines;
-        lines = ft_strjoin(buff, str);
-        if (!lines)
-        {
-            free(str);
-            malloc_exit(win);
-        }
-        if (buff)
-            free(buff);
-        free(str);
-        str = get_next_line(fd);
-    }
-    win->map = ft_split(lines, '\n');
-    free(lines);
-    if (!win->map || !win->map[0])
-        malloc_exit(win);
-    win->col_len = ft_tab_len(win->map); // Assuming you have a function to calculate the number of lines.
-    win->line_len = ft_strlen(win->map[0]); // Assuming the map is rectangular.
+	(check_argv(win, argv), fd = open(argv[1], O_RDONLY));
+	str = get_next_line(fd);
+	buff = NULL;
+	lines = NULL;
+	while (str)
+	{
+		buff = lines;
+		lines = ft_strjoin(buff, str);
+		if (!lines)
+			(free(str), malloc_exit(win));
+		if (buff)
+			free(buff);
+		(free(str), str = get_next_line(fd));
+	}
+	win->map = ft_split(lines, '\n');
+	free(lines);
+	if (!win->map || !win->map[0])
+		malloc_exit(win);
+	win->col_len = ft_tab_len(win->map);
+	win->line_len = ft_strlen((win->map)[0]);
 }
+
 
 void	check_argv(t_main *win, char **argv)
 {
@@ -73,7 +68,7 @@ void	check_inputs(t_main *win)
 
 	i = 0;
 	(exit_check(win), collectable_check(win), start_check(win));
-	(closed_check(win), rectangle_check(win), win->item_nbr = 0);
+	(closed_check(win), rectangle_check(win), win->item_found = 0);
 	map_cpy = malloc(sizeof(char *) * (win->col_len + 1));
 	if (!map_cpy)
 		malloc_exit(win);
@@ -86,10 +81,11 @@ void	check_inputs(t_main *win)
 		i++;
 	}
 	is_map_valid(win, map_cpy, win->start_i, win->start_j);
-	if (win->item_nbr != win->item_found)
-		(ft_fdt(&map_cpy), free_all_and_errors(win, "Error\nMissing collectables\n"));
+	ft_fdt(&map_cpy);
+	if (win->item_found != win->item_nbr)
+		free_all_and_errors(win, "Error\nMissing collectable\n");
 	if (win->exit_found == false)
-		(ft_fdt(&map_cpy), free_all_and_errors(win, "Error\nMissing exit\n"));
+		free_all_and_errors(win, "Error\nMissing exit\n");
 }
 
 int	ft_tab_len(char **tab)

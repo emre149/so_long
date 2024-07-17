@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/07/17 16:47:49 by ededemog         ###   ########.fr        #
+#    Updated: 2024/07/17 16:51:58 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,9 @@ else
 	MLX_FLAGS := -L./inc/mlx-mac -lmlx -framework OpenGL -framework AppKit
 endif
 
-CC := cc
+CC := gcc
 
-CFLAGS := -Werror -Wextra -Wall
+CFLAGS := -Werror -Wextra -Wall -g
 
 all: $(NAME)
 

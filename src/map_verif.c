@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 13:06:02 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 15:00:18 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:34:50 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	collectable_check(t_main *win)
 		}
 		i++;
 	}
-	if (collectable_point == 0)
+	if (collectable_point < 1)
 		free_all_and_errors(win, "Error\nNo collectable found\n");
 }
 

@@ -6,36 +6,37 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 14:25:38 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 15:50:56 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:06:59 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+static int	ft_totalsize(char const *s1, char const *s2)
 {
-	char	*new;
-	size_t	i;
-	size_t	j;
+	int	res;
 
-	i = 0;
-	j = 0;
-	if (!s1 || !s2)
+	res = 0;
+	res += ft_sstrlen((char *)s1);
+	res += ft_sstrlen((char *)s2);
+	return (res);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+
+	if (!s1 && !s2)
 		return (NULL);
-	new = ft_calloc(ft_sstrlen(s1) + ft_sstrlen(s2) + 1, sizeof(char));
-	if (!new)
+	if (!s1)
+		return (ft_strdup((char *)s2));
+	if (!s2)
+		return (ft_strdup((char *)s1));
+	str = malloc((ft_totalsize((char *)s1, (char *)s2) + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	while (s1[i])
-	{
-		new[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		new[i] = s2[j];
-		i++;
-		j++;
-	}
-	new[ft_sstrlen(s1) + ft_sstrlen(s2)] = '\0';
-	return (new);
+	str[0] = '\0';
+	ft_strcat(str, (char *)s1);
+	ft_strcat(str, (char *)s2);
+	return (str);
 }

@@ -6,31 +6,38 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:26:20 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 15:50:54 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:36:23 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strdcpy(char *dest, char *src)
 {
-	int		str_len;
-	char	*new;
+	int	i;
 
-	str_len = ft_sstrlen(str);
-	new = malloc(sizeof(char) * (str_len + 1));
-	if (!new)
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dest;
+	int		i;
+	char	*s2;
+
+	s2 = (char *)s;
+	i = 0;
+	while (s2[i])
+		i++;
+	dest = malloc(sizeof(char) * i + 1);
+	if (!dest)
 		return (NULL);
-	ft_strlcpy(new, str, str_len + 1);
-	return (new);
+	return (ft_strdcpy(dest, s2));
 }
-/*
-#include <stdio.h>
-
-int	main()
-{
-	const char str[] = "bonjour emre";
-
-	printf("%s", ft_strdup(str));
-}
-*/

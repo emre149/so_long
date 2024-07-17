@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:35:43 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 13:33:09 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 18:02:35 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void is_map_valid(t_main *win, char **map_cpy, int i, int j)
 		return;
 	}
 	if (map_cpy[i][j] == 'C')
-		win->item_nbr++;
+		win->item_found++;
 	map_cpy[i][j] = '1';
 	if (win->map[i][j + 1] != '1')
 		is_map_valid(win, map_cpy, i, j + 1);
