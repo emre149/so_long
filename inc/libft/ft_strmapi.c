@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 07:28:59 by ededemog          #+#    #+#             */
-/*   Updated: 2023/11/29 18:34:37 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:50:55 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	new = malloc(sizeof(char) * ft_strlen(s) + 1);
+	new = malloc(sizeof(char) * ft_sstrlen(s) + 1);
 	if (!new)
 		return (NULL);
-	while (i < ft_strlen(s))
+	while (i < ft_sstrlen(s))
 	{
 		new[i] = (*f)(i, s[i]);
 		i++;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
+/*   Updated: 2024/07/17 15:51:51 by ededemog         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -5,7 +17,9 @@
 # define INTMIN -2147483648
 
 # include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 # include "mlx/mlx.h"
+# include "ft_printf/ft_printf.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
@@ -67,33 +81,68 @@ typedef struct s_main
 }			t_main;
 
 // PARSING
-void		store_map(t_main *so_long, char **argv);
-void		check_inputs(t_main *so_long);
-void		check_argv(t_main *so_long, char **argv);
-void		check_map_rectangle(t_main *so_long);
-void		check_map_exit(t_main *so_long);
-void		check_map_item(t_main *so_long);
-void		check_map_start(t_main *so_long);
-void		check_map_closed(t_main *so_long);
-void		check_map_valid(t_main *so_long, char **map_cpy, int i, int y);
+
+void 		store_map(t_main *win, char **argv);
+void		check_argv(t_main *win, char **argv);
+void		check_inputs(t_main *win);
+void		exit_check(t_main *win);
+void		collectable_check(t_main *win);
+void		start_check(t_main *win);
+void		rectangle_check(t_main *win);
+void		closed_check(t_main *win);
+void 		is_map_valid(t_main *win, char **map_cpy, int i, int j);
+int			ft_tab_len(char **tab);
+
+
+
+
+// void		store_map(t_main *so_long, char **argv);
+// void		check_inputs(t_main *so_long);
+// void		check_argv(t_main *so_long, char **argv);
+// void		check_map_rectangle(t_main *so_long);
+// void		check_map_exit(t_main *so_long);
+// void		check_map_item(t_main *so_long);
+// void		check_map_start(t_main *so_long);
+// void		check_map_closed(t_main *so_long);
+// void		check_map_valid(t_main *so_long, char **map_cpy, int i, int y);
 
 // MLX
-void		win_init(t_main *so_long);
-void		load_imgs(t_main *so_long);
-void		win_show_map(t_main *so_long);
-int			handle_moves(t_main *so_long, int key, int i, int j);
-void		print_img(t_main *so_long, void *img_ptr, int i, int j);
-int			move_there(t_main *so_long, int i, int j);
+
+void		win_init(t_main *win);
+void		load_images(t_main *win);
+void		img_display(t_main *win, void *img_ptr, int i, int j);
+void		win_display(t_main *win);
+int			handle_moves(t_main *win, int key, int i, int j);
+int			handle_close(t_main *win);
+int			move_to(t_main *win, int i, int j);
+
+
+// void		win_init(t_main *so_long);
+// void		load_imgs(t_main *so_long);
+// void		win_show_map(t_main *so_long);
+// int			handle_moves(t_main *so_long, int key, int i, int j);
+// void		print_img(t_main *so_long, void *img_ptr, int i, int j);
+// int			move_to(t_main *win, int i, int j);
 
 // MLX UTILS
-int			handle_keypress(int keysym, t_main *so_long);
-int			handle_close(t_main *so_long);
+
+
+int 		handle_keypress(int keysym, t_main *win);
 void		mlx_destroy_imgs(t_main *so_long);
 
-// FREE
-void		free_all(t_main *so_long);
-void		free_all_and_error(t_main *so_long, char *error);
-void		malloc_exit(t_main *so_long);
-void		mlx_exit(t_main *so_long);
+// FREE UTILS
 
-#endif;
+void		free_all(t_main *win);
+void		free_errors(t_main *win, char *err_msg);
+void		free_all_and_errors(t_main *win, char *err_msg);
+void		malloc_exit(t_main *win);
+void		mlx_exit(t_main *win);
+void		handle_error(t_main *win, char *err_msg, int err_code);
+void		mlx_destroy_imgs(t_main *so_long);
+
+// void		free_all(t_main *so_long);
+// void		free_all_and_error(t_main *so_long, char *error);
+// void		malloc_exit(t_main *so_long);
+// void		mlx_exit(t_main *so_long);
+
+#endif

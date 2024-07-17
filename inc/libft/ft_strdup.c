@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:26:20 by ededemog          #+#    #+#             */
-/*   Updated: 2023/11/09 17:41:03 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:50:54 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *str)
 	int		str_len;
 	char	*new;
 
-	str_len = ft_strlen(str);
+	str_len = ft_sstrlen(str);
 	new = malloc(sizeof(char) * (str_len + 1));
 	if (!new)
 		return (NULL);

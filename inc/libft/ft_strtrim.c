@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:21:11 by ededemog          #+#    #+#             */
-/*   Updated: 2023/12/15 18:58:28 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:51:01 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		start++;
 	if (!*start)
 		return (ft_strdup(""));
-	end = start + ft_strlen(start);
+	end = start + ft_sstrlen(start);
 	while (end > start && ft_strchr(set, *end))
 		end--;
 	len = (end - start) + 1;

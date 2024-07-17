@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:45:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/15 19:42:42 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:11:56 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ void	win_init(t_main *win)
 		mlx_exit(win);
 	win->current_i = win->start_i;
 	win->current_j = win->start_j;
-	win_show_map(win);
+	win_display(win);
 	mlx_hook(win->win_ptr, KeyPress, KeyPressMask, &handle_keypress, win);
 	mlx_hook(win->win_ptr, DestroyNotify, KeyPressMask, &handle_close, win);
 	mlx_loop(win->mlx_ptr);
 	mlx_destroy_display(win->mlx_ptr);
 }
 
-int	handle_close(t_main *so_long)
+int	handle_close(t_main *win)
 {
-	free_all(so_long);
+	free_all(win);
 	exit(0);
 	return (0);
 }

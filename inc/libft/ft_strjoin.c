@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 14:25:38 by ededemog          #+#    #+#             */
-/*   Updated: 2023/12/10 17:14:25 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:50:56 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	new = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	new = ft_calloc(ft_sstrlen(s1) + ft_sstrlen(s2) + 1, sizeof(char));
 	if (!new)
 		return (NULL);
 	while (s1[i])
@@ -36,6 +36,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		i++;
 		j++;
 	}
-	new[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	new[ft_sstrlen(s1) + ft_sstrlen(s2)] = '\0';
 	return (new);
 }

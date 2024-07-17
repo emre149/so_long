@@ -6,16 +6,16 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:56:06 by ededemog          #+#    #+#             */
-/*   Updated: 2023/12/16 20:10:49 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:49:09 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void (*f)(void *), void (*del)(void *))
+LibFt_t_list	*ft_lstmap(LibFt_t_list *lst, void (*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*element;
+	LibFt_t_list	*new;
+	LibFt_t_list	*element;
 
 	new = ft_lstnew(f(lst->content));
 	if (!new)

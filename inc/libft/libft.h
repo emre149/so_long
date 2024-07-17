@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:17:21 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/16 16:55:05 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:51:00 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_toupper(int c);
 
 int		ft_isdigit(int c);
 
-size_t	ft_strlen(const char *str);
+size_t	ft_sstrlen(const char *str);
 
 void	*ft_memset(void *pointer, int value, size_t count);
 
@@ -83,30 +83,30 @@ char	*ft_strtrim(const char *s1, const char *set);
 
 /*Bonus*/
 
-typedef struct s_list
+typedef struct LibFt_t_list
 {
 	void			*content;
-	struct s_list	*next;
-}	t_list;
+	struct LibFt_t_list	*next;
+}	LibFt_t_list;
 
-t_list	*ft_lstnew(void *content);
+LibFt_t_list		*ft_lstnew(void *content);
 
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(LibFt_t_list **lst, LibFt_t_list *new);
 
-int		ft_lstsize(t_list *lst);
+int					ft_lstsize(LibFt_t_list *lst);
 
-t_list	*ft_lstlast(t_list *lst);
+//LibFt_t_list		*ft_lstlast(LibFt_t_list *lst);
 
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_back(LibFt_t_list **lst, LibFt_t_list *new);
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstdelone(LibFt_t_list *lst, void (*del)(void *));
 
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstclear(LibFt_t_list **lst, void (*del)(void *));
 
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void				ft_lstiter(LibFt_t_list *lst, void (*f)(void *));
 
-t_list	*ft_lstmap(t_list *lst, void (*f)(void *), void (*del)(void *));
+LibFt_t_list		*ft_lstmap(LibFt_t_list *lst, void (*f)(void *), void (*del)(void *));
 
-void	ft_fdt(char ***tab);
+void				ft_fdt(char ***tab);
 
 #endif

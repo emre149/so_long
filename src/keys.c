@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 19:42:56 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/15 20:02:06 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:07:04 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int handle_keypress(int keysym, t_main *win)
 	int	key;
 
 	key = keysym;
-	if (key == Ex)
+	if (key == KEY_ESC)
 	{
 		free_all(win);
 		exit(0);

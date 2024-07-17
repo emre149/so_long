@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:35:43 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/16 16:46:42 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 13:33:09 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void is_map_valid(t_main *win, char **map_cpy, int i, int j)
 		return;
 	if (map_cpy[i][j] == 'E')
 	{
-		if (win->exit_found)
-			exit_error("Error\nMultiple exits found\n", win);
 		win->exit_found = true;
+		return;
 	}
 	if (map_cpy[i][j] == 'C')
 		win->item_nbr++;

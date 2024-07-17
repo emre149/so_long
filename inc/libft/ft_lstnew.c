@@ -6,17 +6,17 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:00:53 by ededemog          #+#    #+#             */
-/*   Updated: 2023/12/15 16:04:16 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/17 14:45:10 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+LibFt_s_list	*ft_lstnew(void *content)
 {
-	t_list	*elem;
+	LibFt_s_list	*elem;
 
-	elem = malloc(sizeof(t_list));
+	elem = malloc(sizeof(LibFt_s_list));
 	if (!elem)
 		return (NULL);
 	elem->content = content;
