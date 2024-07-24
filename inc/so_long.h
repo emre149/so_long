@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 14:01:38 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 15:21:18 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@
 # define KEY_ESC 65307
 
 # define PLAYER_X "assets/player.xpm"
-# define EXIT_X "assets/hole.xpm"
-# define COLLECTABLE_X "assets/item.xpm"
+# define EXIT_X "assets/exit.xpm"
+# define COLLECTABLE_X "assets/collectables.xpm"
 # define WALL_X "assets/wall.xpm"
-# define EMPTY_X "assets/water.xpm"
+# define EMPTY_X "assets/empty.xpm"
 
 typedef struct s_main
 {

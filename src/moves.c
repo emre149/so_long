@@ -6,29 +6,26 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 19:52:47 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 14:13:54 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:35:41 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	handle_moves(t_main *win, int key, int i, int j)
+int handle_moves(t_main *win, int key, int i, int j)
 {
-	if ((key == KEY_RIGHT || key == KEY_D) && (move_to(win, i,
-				++j)) == 1)
-		return (img_display(win, win->empty, i, --j), 1);
-	else if ((key == KEY_LEFT || key == KEY_A) && (move_to(win, i,
-				--j)) == 1)
-		return (img_display(win, win->empty, i, ++j), 1);
-	else if ((key == KEY_DOWN || key == KEY_S) && (move_to(win, ++i,
-				j)) == 1)
-		return (img_display(win, win->empty, --i, j), 1);
-	else if ((key == KEY_UP || key == KEY_W) && (move_to(win, --i,
-				j)) == 1)
-		return (img_display(win, win->empty, ++i, j), 1);
-	else
-		return (0);
-	return (0);
+    if ((key == KEY_RIGHT || key == KEY_D) && move_to(win, i, ++j) == 1)
+        img_display(win, win->empty, i, j - 1); // Adjust position back for display
+    else if ((key == KEY_LEFT || key == KEY_A) && move_to(win, i, --j) == 1)
+        img_display(win, win->empty, i, j + 1); // Adjust position back for display
+    else if ((key == KEY_DOWN || key == KEY_S) && move_to(win, ++i, j) == 1)
+        img_display(win, win->empty, i - 1, j); // Adjust position back for display
+    else if ((key == KEY_UP || key == KEY_W) && move_to(win, --i, j) == 1)
+        img_display(win, win->empty, i + 1, j); // Adjust position back for display
+    else
+        return (0);
+
+    return (1); // Indicate a move was attempted
 }
 
 int	move_to(t_main *win, int i, int j)

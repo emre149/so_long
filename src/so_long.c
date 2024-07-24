@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:45:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 14:17:53 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 15:25:03 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	win_init(t_main *win)
 	win->mlx_ptr = mlx_init();
 	if (win->mlx_ptr == NULL)
 		malloc_exit(win);
-	win->win_ptr = mlx_new_window(win->mlx_ptr, 1920, 1080, "so_long");
+	win->win_ptr = mlx_new_window(win->mlx_ptr, 1250, 650, "so_long");
 	if (!win->win_ptr)
 		mlx_exit(win);
 	win->current_i = win->start_i;
