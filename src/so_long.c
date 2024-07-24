@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:45:52 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 14:11:56 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:17:53 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		t_main.empty = NULL;
 		t_main.collectables = NULL;
 		t_main.wall = NULL;
+		t_main.exit = NULL;
 		t_main.total_moves = 0;
 		t_main.item_found = 0;
 		t_main.exit_found = false;
@@ -42,7 +43,7 @@ void	win_init(t_main *win)
 	win->mlx_ptr = mlx_init();
 	if (win->mlx_ptr == NULL)
 		malloc_exit(win);
-	win->win_ptr = mlx_new_window(win->mlx_ptr, win->width * 32, win->height * 32, "so_long");
+	win->win_ptr = mlx_new_window(win->mlx_ptr, 1920, 1080, "so_long");
 	if (!win->win_ptr)
 		mlx_exit(win);
 	win->current_i = win->start_i;

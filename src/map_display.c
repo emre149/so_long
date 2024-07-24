@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 17:09:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/16 18:17:03 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:20:31 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	img_display(t_main *win, void *img_ptr, int i, int j)
 	int	i_pos;
 	int	j_pos;
 
-	i_pos = i * win->width;
-	j_pos = j * win->height;
+	i_pos = j * 32;
+	j_pos = i * 32;
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, img_ptr, j_pos, i_pos);
 }
 

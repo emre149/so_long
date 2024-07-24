@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 19:52:47 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 15:01:25 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/24 14:13:54 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 int	handle_moves(t_main *win, int key, int i, int j)
 {
-	if (key == KEY_RIGHT || key == KEY_D)
-	{
-		if (move_to(win, i - 1, j))
-			return (1);
-	}
-	else if (key == 115)
-	{
-		if (move_to(win, i + 1, j))
-			return (1);
-	}
-	else if (key == 97)
-	{
-		if (move_to(win, i, j - 1))
-			return (1);
-	}
-	else if (key == 100)
-	{
-		if (move_to(win, i, j + 1))
-			return (1);
-	}
+	if ((key == KEY_RIGHT || key == KEY_D) && (move_to(win, i,
+				++j)) == 1)
+		return (img_display(win, win->empty, i, --j), 1);
+	else if ((key == KEY_LEFT || key == KEY_A) && (move_to(win, i,
+				--j)) == 1)
+		return (img_display(win, win->empty, i, ++j), 1);
+	else if ((key == KEY_DOWN || key == KEY_S) && (move_to(win, ++i,
+				j)) == 1)
+		return (img_display(win, win->empty, --i, j), 1);
+	else if ((key == KEY_UP || key == KEY_W) && (move_to(win, --i,
+				j)) == 1)
+		return (img_display(win, win->empty, ++i, j), 1);
+	else
+		return (0);
 	return (0);
 }
 
