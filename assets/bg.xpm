@@ -1,7 +1,9 @@
 /* XPM */
-static char * bg_xpm[] = {
-"96 96 1 1",
-" 	c #427541",
+static char *result[] = {
+/* columns rows colors chars-per-pixel */
+"96 96 1 1 ",
+"  c green",
+/* pixels */
 "                                                                                                ",
 "                                                                                                ",
 "                                                                                                ",
@@ -97,4 +99,5 @@ static char * bg_xpm[] = {
 "                                                                                                ",
 "                                                                                                ",
 "                                                                                                ",
-"                                                                                                "};
+"                                                                                                "
+};
