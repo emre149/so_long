@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 15:21:18 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:32:50 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# define HEIGHT 32
-# define WIDTH 32
+# define HEIGHT 96
+# define WIDTH 96
 
 # define WALL '1'
 # define EMPTY '0'
@@ -50,99 +50,86 @@
 # define KEY_Q 113
 # define KEY_ESC 65307
 
-# define PLAYER_X "assets/player.xpm"
-# define EXIT_X "assets/exit.xpm"
-# define COLLECTABLE_X "assets/collectables.xpm"
-# define WALL_X "assets/wall.xpm"
-# define EMPTY_X "assets/empty.xpm"
-
-typedef struct s_main
+typedef struct s_assets
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	**map;
-	int		line_len;
-	int		col_len;
-	int		start_i;
-	int		start_j;
-	int		current_i;
-	int		current_j;
-	int		item_nbr;
-	int		item_found;
-	bool	exit_found;
-	void	*player;
+	void	*bg_2_1;
+	void	*bg_2_2;
+	void	*bg_2_3;
+	void	*bg_1;
+	void	*chest_o;
+	void	*chest;
 	void	*exit;
-	void	*collectables;
+	void	*player;
+	void	*wall_bl;
+	void	*wall_br;
+	void	*wall_tl;
+	void	*wall_tr;
+	void	*wall_t;
+	void	*wall_b;
+	void	*wall_l;
+	void	*wall_r;
 	void	*wall;
-	void	*empty;
-	int		height;
-	int		width;
-	int		total_moves;
-}			t_main;
+}				t_assets;
 
-// PARSING
+typedef struct s_main {
+	void		*mlx;
+	void		*mlx_win;
+	int			game_state;
+	char		*map;
+	int			map_w;
+	int			map_h;
+	int			move;
+	int			collect;
+	int			player_pos;
+	t_assets	assets;
+}				t_main;
 
-void 		store_map(t_main *win, char **argv);
-void		check_argv(t_main *win, char **argv);
-void		check_inputs(t_main *win);
-void		exit_check(t_main *win);
-void		collectable_check(t_main *win);
-void		start_check(t_main *win);
-void		rectangle_check(t_main *win);
-void		closed_check(t_main *win);
-void 		is_map_valid(t_main *win, char **map_cpy, int i, int j);
-int			ft_tab_len(char **tab);
+// ------------------------------------------------------ check_solvability.c --
 
+char	*spread(char *mapcpy, int pos, int *nb_to_find);
+int		check_map_can_be_solved(char *map, t_main *game);
 
+// ------------------------------------------------------------------ check.c --
 
+int		check_enclosure(char *map);
+int		check_charactere(char *map);
+int		check_integrity(char *map);
+int		check_map(t_main *game, char *filename);
 
-// void		store_map(t_main *so_long, char **argv);
-// void		check_inputs(t_main *so_long);
-// void		check_argv(t_main *so_long, char **argv);
-// void		check_map_rectangle(t_main *so_long);
-// void		check_map_exit(t_main *so_long);
-// void		check_map_item(t_main *so_long);
-// void		check_map_start(t_main *so_long);
-// void		check_map_closed(t_main *so_long);
-// void		check_map_valid(t_main *so_long, char **map_cpy, int i, int y);
+// ------------------------------------------------------------------- imgs.c --
 
-// MLX
+int		open_imgs(void *mlx, t_main *game);
+int		close_img(t_main *g);
+int		close_img_wall(t_main *g);
 
-void		win_init(t_main *win);
-void		load_images(t_main *win);
-void		img_display(t_main *win, void *img_ptr, int i, int j);
-void		win_display(t_main *win);
-int			handle_moves(t_main *win, int key, int i, int j);
-int			handle_close(t_main *win);
-int			move_to(t_main *win, int i, int j);
+// ------------------------------------------------------------- maps_funct.c --
 
+int		get_map_size(t_main *game, char *filename);
+int		get_map(t_main *game, char *file);
 
-// void		win_init(t_main *so_long);
-// void		load_imgs(t_main *so_long);
-// void		win_show_map(t_main *so_long);
-// int			handle_moves(t_main *so_long, int key, int i, int j);
-// void		print_img(t_main *so_long, void *img_ptr, int i, int j);
-// int			move_to(t_main *win, int i, int j);
+// ------------------------------------------------------------------- move.c --
 
-// MLX UTILS
+int		move_check(t_main *game, char direction);
+int		move_player(t_main game, int from_pos, char direction);
 
+// ----------------------------------------------------------------- render.c --
 
-int 		handle_keypress(int keysym, t_main *win);
-void		mlx_destroy_imgs(t_main *so_long);
+int		img_display(t_main win, char c, int x, int y);
+int		fill_win(t_main win);
+void	*get_wall(t_main win, int x, int y);
 
-// FREE UTILS
+// ---------------------------------------------------------------- so_long.c --
 
-void		free_all(t_main *win);
-void		free_errors(t_main *win, char *err_msg);
-void		free_all_and_errors(t_main *win, char *err_msg);
-void		malloc_exit(t_main *win);
-void		mlx_exit(t_main *win);
-void		handle_error(t_main *win, char *err_msg, int err_code);
-void		mlx_destroy_imgs(t_main *so_long);
+int		clean_exit(t_main *win);
+int		key_handler(int keycode, t_main *win);
+void	event_listener(t_main *win);
 
-// void		free_all(t_main *so_long);
-// void		free_all_and_error(t_main *so_long, char *error);
-// void		malloc_exit(t_main *so_long);
-// void		mlx_exit(t_main *so_long);
+// ------------------------------------------------------------------ utils.c --
+
+int		item_occ(char *str, char c);
+int		line_len(char *str);
+int		get_ind(int pos, char *map, char directions);
+int		index(char *map, char tf);
+int		find_x_y(t_main win, int pos, int *x, int *y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:17:21 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/17 17:36:32 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:49:38 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include <stdarg.h>
+
 
 int		ft_isalnum(int c);
 
@@ -53,7 +55,7 @@ char	*ft_strcat(char *dest, char *src);
 
 char	*ft_strstr(char *haystack, char *needle);
 
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(int c, int fd);
 
 void	ft_putstr_fd(char *str, int fd);
 
