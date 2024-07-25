@@ -6,7 +6,7 @@
 #    By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 16:08:00 by ededemog          #+#    #+#              #
-#    Updated: 2024/07/24 13:59:01 by ededemog         ###   ########.fr        #
+#    Updated: 2024/07/25 17:35:02 by ededemog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ OBJDIR := obj/
 INCDIR := ./inc/mlx/ ./inc/ft_printf/
 LIBFT_PATH := ./inc/libft 
 
-SRC := so_long.c free_utils.c input_verif.c keys.c map_display.c map_verif.c \
-		moves.c parser.c ../inc/get_next_line/get_next_line.c \
-		../inc/get_next_line/get_next_line_utils.c
+SRC := main.c map_utils.c map_verif.c rendering.c solvability.c utils.c moves.c \
+		img_config.c
 GNL := get_next_line.c get_next_line_utils.c
 OBJ := $(SRC:.c=.o)
 

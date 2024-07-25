@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 15:32:50 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:16:22 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,11 @@
 
 typedef struct s_assets
 {
-	void	*bg_2_1;
-	void	*bg_2_2;
-	void	*bg_2_3;
 	void	*bg_1;
 	void	*chest_o;
 	void	*chest;
 	void	*exit;
 	void	*player;
-	void	*wall_bl;
-	void	*wall_br;
-	void	*wall_tl;
-	void	*wall_tr;
-	void	*wall_t;
-	void	*wall_b;
-	void	*wall_l;
-	void	*wall_r;
 	void	*wall;
 }				t_assets;
 
@@ -91,20 +80,20 @@ int		check_map_can_be_solved(char *map, t_main *game);
 
 // ------------------------------------------------------------------ check.c --
 
-int		check_enclosure(char *map);
-int		check_charactere(char *map);
+int		is_closed(char *map);
+int		check_items(char *map);
 int		check_integrity(char *map);
 int		check_map(t_main *game, char *filename);
 
 // ------------------------------------------------------------------- imgs.c --
 
 int		open_imgs(void *mlx, t_main *game);
+int		open_imgs(void *mlx, t_main *win);
 int		close_img(t_main *g);
-int		close_img_wall(t_main *g);
 
 // ------------------------------------------------------------- maps_funct.c --
 
-int		get_map_size(t_main *game, char *filename);
+int		map_size(t_main *win, char *filename);
 int		get_map(t_main *game, char *file);
 
 // ------------------------------------------------------------------- move.c --
@@ -129,7 +118,7 @@ void	event_listener(t_main *win);
 int		item_occ(char *str, char c);
 int		line_len(char *str);
 int		get_ind(int pos, char *map, char directions);
-int		index(char *map, char tf);
+int		find_index(char *map, char tf);
 int		find_x_y(t_main win, int pos, int *x, int *y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:26:43 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 15:44:55 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 17:36:01 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ int	move_check(t_main *win, char direction)
 	if (win->map[temp] == EXIT)
 		move_player(*win, win->player_pos, direction);
 	if (win->map[temp] == EXIT && win->collect == 0)
-		return (close_program(win), 0);
+		return (clean_exit(win), 0);
 	if (win->map[temp] == 'O')
 		move_player(*win, win->player_pos, direction);
 	win->player_pos = temp;
 	return (win->move++, 0);
 }
 
-int	move_play(t_main win, int initial_pos, char direction)
+int	move_player(t_main win, int initial_pos, char direction)
 {
 	int	x;
 	int	y;
 
-	fill_x_y(win, initial_pos, &x, &y);
+	find_x_y(win, initial_pos, &x, &y);
 	x = x * 96;
 	y = y * 96;
 	img_display(win, EMPTY, x, y);

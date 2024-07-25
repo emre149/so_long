@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:28:42 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 16:39:43 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:35:56 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ int	fill_win(t_main win)
 		find_x_y(win, i, &x, &y);
 		img_display(win, win.map[(win.map_w + 1) * y + x], x * 96, y * 96);
 	}
+	return (0);
 }

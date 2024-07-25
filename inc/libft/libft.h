@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:17:21 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 15:49:38 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:02:18 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strstr(char *haystack, char *needle);
 
 int		ft_putchar_fd(int c, int fd);
 
-void	ft_putstr_fd(char *str, int fd);
+int	ft_putstr_fd(char *str, int fd);
 
 void	ft_putendl_fd(char *str, int fd);
 
@@ -112,5 +112,7 @@ void				ft_lstiter(LibFt_t_list *lst, void (*f)(void *));
 LibFt_t_list		*ft_lstmap(LibFt_t_list *lst, void (*f)(void *), void (*del)(void *));
 
 void				ft_fdt(char ***tab);
+
+int					ft_printf_e(const char *s, ...);
 
 #endif

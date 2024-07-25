@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 15:59:30 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 16:09:26 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:39:28 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ int	item_occ(char *str, char c)
 	i = 0;
 	count = 0;
 	while (str[i])
+	{
 		if (str[i] == c)
 			count++;
 		i++;
+	}
 	return (count);
 }
 
@@ -41,7 +43,7 @@ int	get_ind(int pos, char *map, char directions)
 	int	i;
 
 	i = line_len(map) + 1;
-	if (map[pos] == "\n")
+	if (map[pos] == '\n')
 		return (-1);
 	if (directions == 't')
 		if (pos > i)
@@ -58,7 +60,7 @@ int	get_ind(int pos, char *map, char directions)
 	return (-1);
 }
 
-int	index(char *map, char tf)
+int	find_index(char *map, char tf)
 {
 	int	i;
 

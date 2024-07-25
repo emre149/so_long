@@ -6,20 +6,29 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:24:37 by ededemog          #+#    #+#             */
-/*   Updated: 2023/12/09 19:03:01 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 16:41:02 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *str, int fd)
+int	ft_putstr_fd(char *str, int fd)
 {
-	int	i;
+	size_t	i;
+	int		rt_val;
 
 	i = 0;
-	while (str && str[i])
+	rt_val = 0;
+	if (!str)
+		i = ft_putstr_fd("(null)", fd);
+	else
 	{
-		write(fd, &str[i], 1);
-		i++;
+		while (str[i])
+		{
+			rt_val = ft_putchar_fd(str[i++], fd);
+			if (rt_val == -1)
+				return (rt_val);
+		}
 	}
+	return (i);
 }

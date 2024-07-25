@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 01:32:15 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 18:26:42 by ededemog         ###   ########.fr       */
+/*   Created: 2024/07/25 18:08:52 by ededemog          #+#    #+#             */
+/*   Updated: 2024/07/25 18:10:43 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "inc/so_long.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	main(void)
 {
-	char	*var;
+	char *str = "1P00010E1";
+	char	c = 'P';
 
-	if (size && count > 2147483647 / size)
-		return (0);
-	var = malloc(count * size);
-	if (!var)
-		return (0);
-	ft_bzero(var, count * size);
-	return (var);
+	ft_printf("found item : %d\n", item_occ(str, c));
 }
-

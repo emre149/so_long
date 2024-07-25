@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:12:19 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/24 16:28:20 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:17:36 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	clean_exit(t_main *win)
 int	key_handler(int keycode, t_main *win)
 {
 	if (keycode == KEY_ESC)
-		close_program(win);
+		clean_exit(win);
 	if (keycode == KEY_W || keycode == KEY_UP || keycode == 32)
 		move_check(win, 't');
 	if (keycode == KEY_S || keycode == KEY_DOWN || keycode == 65505)
@@ -77,8 +77,8 @@ int	main(int argc, char **argv)
 	win.mlx = mlx_init();
 	if (!win.mlx)
 		return (clean_exit(&win), 1);
-	win.player_pos = index(win.map, PLAYER);
-	open_img(win.mlx, &win);
+	win.player_pos = find_index(win.map, PLAYER);
+	open_imgs(win.mlx, &win);
 	win.game_state = 4;
 	win.mlx_win = mlx_new_window(win.mlx, win.map_w * WIDTH, win.map_h * WIDTH, "so_long");
 	if (!win.mlx_win)
