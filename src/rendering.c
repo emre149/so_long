@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:28:42 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 19:29:07 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:53:46 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	img_display(t_main win, char c, int x, int y)
 	void	*img;
 
 	img = win.assets.bg_1;
-	if (c == PLAYER)
+	if (c == WALL)
 		img = get_wall(win, x, y);
 	if (c == EMPTY)
 		img = win.assets.bg_1;

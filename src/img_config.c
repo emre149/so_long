@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:31:39 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 19:38:02 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 13:50:49 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,3 +94,4 @@ int	close_img_wall(t_main *g)
 		mlx_destroy_image(g->mlx, g->assets.wall_r);
 	return (0);
 }
+
