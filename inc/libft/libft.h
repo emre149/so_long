@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:17:21 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 15:09:49 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 15:21:37 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
-char			*ft_itoa(int n);
+//char			*ft_itoa(int n);
 
 char			*ft_strjoin(const char *s1, const char *s2);
 
