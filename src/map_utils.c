@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:45:13 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 18:46:03 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:55:13 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ int	map_size(t_main *win, char *filename)
 		if (rt_value == 1)
 			i++;
 	}
-	close(fd);
-	return(i);
+	close (fd);
+	return (i);
 }
 
 int	get_map(t_main *win, char *filename)
 {
-	int	rt_value;
-	int	fd;
-	int	i;
-	char c;
+	int		rt_value;
+	int		fd;
+	int		i;
+	char	c;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -57,6 +57,6 @@ int	get_map(t_main *win, char *filename)
 			win->map[i] = c;
 		i++;
 	}
-	close(fd);
+	close (fd);
 	return (0);
 }

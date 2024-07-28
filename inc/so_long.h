@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 19:29:34 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:47:45 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,42 +89,28 @@ typedef struct s_main {
 char	*spread(char *mapcpy, int pos, int *nb_to_find);
 int		check_map_can_be_solved(char *map, t_main *game);
 
-// ------------------------------------------------------------------ check.c --
-
 int		is_closed(char *map);
 int		check_items(char *map);
 int		check_integrity(char *map);
 int		check_map(t_main *game, char *filename);
 
-// ------------------------------------------------------------------- imgs.c --
-
 int		open_imgs(void *mlx, t_main *game);
 int		close_img(t_main *g);
 int		close_img_wall(t_main *g);
 
-// ------------------------------------------------------------- maps_funct.c --
-
 int		map_size(t_main *win, char *filename);
 int		get_map(t_main *game, char *file);
 
-// ------------------------------------------------------------------- move.c --
-
 int		move_check(t_main *game, char direction);
 int		move_player(t_main game, int from_pos, char direction);
-
-// ----------------------------------------------------------------- render.c --
 
 int		img_display(t_main win, char c, int x, int y);
 int		fill_win(t_main win);
 void	*get_wall(t_main win, int x, int y);
 
-// ---------------------------------------------------------------- so_long.c --
-
 int		clean_exit(t_main *win);
 int		key_handler(int keycode, t_main *win);
 void	event_listener(t_main *win);
-
-// ------------------------------------------------------------------ utils.c --
 
 int		item_occ(char *str, char c);
 int		line_len(char *str);

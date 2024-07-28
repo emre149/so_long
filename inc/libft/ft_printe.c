@@ -6,12 +6,11 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:47:40 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 16:02:05 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 15:10:03 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static int	redirect(const char c, va_list vl, int fd)
 {

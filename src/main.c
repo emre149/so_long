@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:12:19 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 19:39:10 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:57:59 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-		return (clean_exit(&win), 1);	
+		return (clean_exit(&win), 1);
 	}
 	check_map(&win, argv[1]);
 	win.collect = item_occ(win.map, COLLECTABLE);
@@ -80,7 +80,8 @@ int	main(int argc, char **argv)
 	win.player_pos = find_index(win.map, PLAYER);
 	open_imgs(win.mlx, &win);
 	win.game_state = 4;
-	win.mlx_win = mlx_new_window(win.mlx, win.map_w * WIDTH, win.map_h * HEIGHT, "so_long");
+	win.mlx_win = mlx_new_window(win.mlx, win.map_w * WIDTH, \
+		win.map_h * HEIGHT, "so_long");
 	if (!win.mlx_win)
 		return (clean_exit(&win), 1);
 	fill_win(win);

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:08:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 18:51:18 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:59:11 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,11 @@ int	check_items(char *map)
 
 	i = -1;
 	while (map[++i])
-		if (map[i] != WALL && map[i] != EMPTY && map[i] != COLLECTABLE && map[i] != PLAYER \
-			&& map[i] != EXIT && map[i] != '\n')
+		if (map[i] != WALL && map[i] != EMPTY && map[i] != COLLECTABLE && \
+			map[i] != PLAYER && map[i] != EXIT && map[i] != '\n')
 			return (1);
 	return (0);
 }
-
 
 int	check_filename(char *filename)
 {
@@ -103,14 +102,11 @@ int	check_map(t_main *win, char *filename)
 	if (check_items(win->map))
 		return (ft_printf("No map.\n"), clean_exit(win));
 	if (item_occ(win->map, PLAYER) != 1)
-	{
-		ft_printf("%d\n", item_occ(win->map, PLAYER));
-		return (ft_printf("No start.\n")), clean_exit(win);
-	}
+		return (ft_printf("No start.\n"), clean_exit(win));
 	if (item_occ(win->map, EXIT) != 1)
-		return (ft_printf("No exit.\n")), clean_exit(win);
+		return (ft_printf("No exit.\n"), clean_exit(win));
 	if (item_occ(win->map, COLLECTABLE) < 1)
-		return (ft_printf("No collectables.\n")), clean_exit(win);
+		return (ft_printf("No collectables.\n"), clean_exit(win));
 	if (is_closed(win->map))
 		return (ft_printf("Map is not closed.\n"), clean_exit(win));
 	if (is_same_len(win->map))

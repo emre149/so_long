@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:28:42 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 13:53:46 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 14:56:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	img_display(t_main win, char c, int x, int y)
 		img = win.assets.player;
 	if (c == EXIT)
 		img = win.assets.exit;
-	mlx_put_image_to_window(win.mlx, win.mlx_win, img, x , y);
+	mlx_put_image_to_window(win.mlx, win.mlx_win, img, x, y);
 	return (0);
 }
 

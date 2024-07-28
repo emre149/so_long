@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 01:32:15 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 18:26:42 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/28 15:19:11 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(var, count * size);
 	return (var);
 }
-
