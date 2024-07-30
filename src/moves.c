@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:26:43 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/25 17:36:01 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:11:15 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	move_player(t_main win, int initial_pos, char direction)
 	int	y;
 
 	find_x_y(win, initial_pos, &x, &y);
-	x = x * 96;
-	y = y * 96;
+	x = x * 64;
+	y = y * 64;
 	img_display(win, EMPTY, x, y);
 	if (win.map[initial_pos] == COLLECTABLE || win.map[initial_pos] == 'O')
 	{
@@ -58,13 +58,13 @@ int	move_player(t_main win, int initial_pos, char direction)
 	if (win.map[initial_pos] == EXIT)
 		img_display(win, EXIT, x, y);
 	if (direction == 't')
-		y -= 96;
+		y -= 64;
 	if (direction == 'b')
-		y += 96;
+		y += 64;
 	if (direction == 'l')
-		x -= 96;
+		x -= 64;
 	if (direction == 'r')
-		x += 96;
+		x += 64;
 	ft_printf("Total moves: %d\n", ++win.move);
 	return (img_display(win, PLAYER, x, y), 0);
 }

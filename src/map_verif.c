@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:08:03 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 14:59:11 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:05:27 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,28 +91,28 @@ int	check_filename(char *filename)
 int	check_map(t_main *win, char *filename)
 {
 	if (check_filename(filename))
-		return (ft_printf("Invalid filename.\n"), clean_exit(win), 1);
+		return (ft_printf("Error\nInvalid filename.\n"), clean_exit(win), 1);
 	win->map = ft_calloc(map_size(win, filename) + 1, sizeof(char));
 	if (!win->map)
-		return (ft_printf("Malloc error.\n"), clean_exit(win), 0);
+		return (ft_printf("Error\nMalloc error.\n"), clean_exit(win), 0);
 	win->game_state = 1;
 	get_map(win, filename);
 	win->map_h = item_occ(win->map, '\n') + 1;
 	win->map_w = line_len(win->map);
 	if (check_items(win->map))
-		return (ft_printf("No map.\n"), clean_exit(win));
+		return (ft_printf("Error\nNo map.\n"), clean_exit(win));
 	if (item_occ(win->map, PLAYER) != 1)
-		return (ft_printf("No start.\n"), clean_exit(win));
+		return (ft_printf("Error\nNo start.\n"), clean_exit(win));
 	if (item_occ(win->map, EXIT) != 1)
-		return (ft_printf("No exit.\n"), clean_exit(win));
+		return (ft_printf("Error\nNo exit.\n"), clean_exit(win));
 	if (item_occ(win->map, COLLECTABLE) < 1)
-		return (ft_printf("No collectables.\n"), clean_exit(win));
+		return (ft_printf("Error\nNo collectables.\n"), clean_exit(win));
 	if (is_closed(win->map))
-		return (ft_printf("Map is not closed.\n"), clean_exit(win));
+		return (ft_printf("Error\nMap is not closed.\n"), clean_exit(win));
 	if (is_same_len(win->map))
-		return (ft_printf("Invalid integrity.\n"), clean_exit(win));
+		return (ft_printf("Error\nInvalid integrity.\n"), clean_exit(win));
 	win->game_state = 2;
 	if (check_map_can_be_solved(win->map, win))
-		return (ft_printf("Map is unsolvable.\n"), clean_exit(win));
+		return (ft_printf("Error\nMap is unsolvable.\n"), clean_exit(win));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 16:28:42 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 14:56:06 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:11:23 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,21 @@ void	*get_wall(t_main win, int x, int y)
 	void	*img;
 
 	img = win.assets.wall;
-	if (y / 96 == 0)
+	if (y / 64 == 0)
 		img = win.assets.wall_t;
-	if (y / 96 == win.map_h - 1)
+	if (y / 64 == win.map_h - 1)
 		img = win.assets.wall_b;
-	if (x / 96 == 0)
+	if (x / 64 == 0)
 		img = win.assets.wall_l;
-	if (x / 96 == (win.map_w - 1))
+	if (x / 64 == (win.map_w - 1))
 		img = win.assets.wall_r;
-	if (x / 96 == 0 && y / 96 == 0)
+	if (x / 64 == 0 && y / 64 == 0)
 		img = win.assets.wall_tl;
-	if (x / 96 == (win.map_w - 1) && y / 96 == 0)
+	if (x / 64 == (win.map_w - 1) && y / 64 == 0)
 		img = win.assets.wall_tr;
-	if (x / 96 == 0 && y / 96 == win.map_h - 1)
+	if (x / 64 == 0 && y / 64 == win.map_h - 1)
 		img = win.assets.wall_bl;
-	if (x / 96 == (win.map_w - 1) && y / 96 == win.map_h - 1)
+	if (x / 64 == (win.map_w - 1) && y / 64 == win.map_h - 1)
 		img = win.assets.wall_br;
 	return (img);
 }
@@ -69,7 +69,7 @@ int	fill_win(t_main win)
 	while (++i < ft_sstrlen(win.map))
 	{
 		find_x_y(win, i, &x, &y);
-		img_display(win, win.map[(win.map_w + 1) * y + x], x * 96, y * 96);
+		img_display(win, win.map[(win.map_w + 1) * y + x], x * 64, y * 64);
 	}
 	return (0);
 }

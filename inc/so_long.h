@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 14:40:11 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 14:47:45 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:11:33 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# define HEIGHT 96
-# define WIDTH 96
+# define HEIGHT 64
+# define WIDTH 64
 
 # define WALL '1'
 # define EMPTY '0'

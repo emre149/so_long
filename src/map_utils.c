@@ -6,7 +6,7 @@
 /*   By: ededemog <ededemog@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 15:45:13 by ededemog          #+#    #+#             */
-/*   Updated: 2024/07/28 14:55:13 by ededemog         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:06:06 by ededemog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	map_size(t_main *win, char *filename)
 	i = 0;
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (ft_printf("No map."), clean_exit(win), 0);
+		return (ft_printf("Error\nNo map."), clean_exit(win), 0);
 	rt_value = 1;
 	while (rt_value)
 	{
@@ -45,7 +45,7 @@ int	get_map(t_main *win, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (ft_printf("No map."), clean_exit(win), 0);
+		return (ft_printf("Error\nNo map."), clean_exit(win), 0);
 	i = 0;
 	rt_value = 1;
 	while (rt_value > 0)
